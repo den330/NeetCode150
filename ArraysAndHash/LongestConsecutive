@@ -1,3 +1,4 @@
+// not O(n)
 func longestConsecutive(_ nums: [Int]) -> Int {
     if nums.isEmpty {
         return 0
@@ -29,4 +30,23 @@ func longestConsecutive(_ nums: [Int]) -> Int {
         currentNum = num
     }
     return currentMax
+}
+
+
+// O(n)
+func longestConsecutiveOn(_ nums: [Int]) -> Int {
+    var numSet = Set(nums)
+    var finalStreak = 0
+    for num in numSet {
+        if !numSet.contains(num - 1) {
+            var theNum = num
+            var currentStreak = 1
+            while numSet.contains(theNum + 1) {
+                currentStreak += 1
+                theNum += 1
+            }
+            finalStreak = currentStreak > finalStreak ? currentStreak : finalStreak
+        }
+    }
+    return finalStreak
 }
