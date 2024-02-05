@@ -28,3 +28,10 @@ func isPalindrome(_ s: String) -> Bool {
     }
     return true
 }
+
+func isPalindrome2(_ s: String) -> Bool {
+    if s.count == 0 || s.count == 1 {
+        return true
+    }
+    
+}
