@@ -31,3 +31,22 @@ func uniquePaths(_ m: Int, _ n: Int) -> Int {
     }
     return numArr[m - 1][n - 1]
 }
+
+
+//ideal
+func uniquePaths(_ m: Int, _ n: Int) -> Int {
+    // Create a 2D array filled with 1s, as the base case for the first row and column is always 1
+    var grid = Array(repeating: Array(repeating: 1, count: n), count: m)
+    
+    // Start from 1 since the first row and column are already initialized
+    for i in 1..<m {
+        for j in 1..<n {
+            // The number of paths to reach this cell is the sum of the paths
+            // from the cell above it and the cell to the left of it
+            grid[i][j] = grid[i - 1][j] + grid[i][j - 1]
+        }
+    }
+    
+    // Return the number of unique paths to the bottom-right corner
+    return grid[m - 1][n - 1]
+}
