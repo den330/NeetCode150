@@ -7,25 +7,6 @@ struct CarInfo {
   }  
 }
 
-class Stack {
-    fileprivate var array: [CarInfo] = []
-    func push(_ element: CarInfo) {
-        array.append(element)
-    }
-    func pop() -> CarInfo? {
-        return array.popLast()
-    }
-    func peek() -> CarInfo? {
-        return array.last
-    }
-    func isEmpty() -> Bool {
-        return array.isEmpty
-    }
-    func clear() {
-        array.removeAll()
-    }
-}
-
 func carFleet(_ target: Int, _ position: [Int], _ speed: [Int]) -> Int {
     var index = 0
     var carInfoArr: [CarInfo] = []
